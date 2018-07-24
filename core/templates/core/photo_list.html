@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'core_photo_list' %}">Photo Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>caption</td>
+    <td>description</td>
+    <td>category</td>
+    <td>location</td>
+    <td>up_votes</td>
+    <td>down_votes</td>
+    <td>view_count</td>
+    <td>photo_url</td>
+    <td>date_last_modified</td>
+    <td>date_added</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.caption }}</td>
+    <td>{{ object.description }}</td>
+    <td>{{ object.category }}</td>
+    <td>{{ object.location }}</td>
+    <td>{{ object.up_votes }}</td>
+    <td>{{ object.down_votes }}</td>
+    <td>{{ object.view_count }}</td>
+    <td>{{ object.photo_url }}</td>
+    <td>{{ object.date_last_modified }}</td>
+    <td>{{ object.date_added }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'core_photo_create' %}">Create new Photo</a>
+{% endblock %}

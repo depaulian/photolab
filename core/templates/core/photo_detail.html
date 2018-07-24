@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'core_photo_list' %}">Photo Listing</a></p>
+<table class="table">
+<tr><td>caption</td><td>{{ object.caption }}</td></tr>
+<tr><td>description</td><td>{{ object.description }}</td></tr>
+<tr><td>category</td><td>{{ object.category }}</td></tr>
+<tr><td>location</td><td>{{ object.location }}</td></tr>
+<tr><td>up_votes</td><td>{{ object.up_votes }}</td></tr>
+<tr><td>down_votes</td><td>{{ object.down_votes }}</td></tr>
+<tr><td>view_count</td><td>{{ object.view_count }}</td></tr>
+<tr><td>photo_url</td><td>{{ object.photo_url }}</td></tr>
+<tr><td>date_last_modified</td><td>{{ object.date_last_modified }}</td></tr>
+<tr><td>date_added</td><td>{{ object.date_added }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Photo</a>
+
+{% endblock %}
